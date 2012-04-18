@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, DecisionMakerActivity!</string>
+    <string name="app_name">DecisionMaker</string>
+    <string name="spin">12345</string>
+    <string-array name="items">
+        <item>American</item>
+        <item>Asian</item>
+        <item>Vegetarian</item>
+        <item>Mexican</item>
+        <item>Indian</item>
+    </string-array>
+	
+</resources>
