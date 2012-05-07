@@ -23,6 +23,7 @@ public class MovieActivity  extends Activity {
 	Button submitButton;
 	String seletedCuisineType;
 	ArrayList<String> names;
+	String userName="";
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,10 @@ public class MovieActivity  extends Activity {
     	StrictMode.setThreadPolicy(policy);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);  
+        Bundle extras = getIntent().getExtras();
+		if(extras !=null) {
+			 userName = extras.getString("userName");
+		}
         Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/MEgalopolisExtra.otf");
         TextView tv = (TextView) findViewById(R.id.title);
         tv.setTypeface(tf);
@@ -56,9 +61,22 @@ public class MovieActivity  extends Activity {
 		        		.openConnection();
 		        	readStream(con.getInputStream());
 		        	//TextView tempTV=new TextView("apple");
+		        	String optionString="";
+		        	for(int i=0;i<names.size();i++)
+		        	{
+		        		optionString+=names.get(i)+";";
+		        	}
+		        	Client client=new Client();
+		        	client.startClient();
+		        	client.sendMessage("1;"+userName+";"+optionString);
+		        	String eventID=client.recvMessage();
+		        	client.sendMessage("end");
+		        	client.closeConnection();
+		        	
 		        	Intent intent = new Intent(MovieActivity.this, RestaurantList.class);
 		        	intent.putExtra("names", names);
-		        	
+		        	intent.putExtra("userName",userName);
+		        	intent.putExtra("eventID",eventID);
 		        	MovieActivity.this.startActivity(intent);
 
 		        	} catch (Exception e) {

@@ -17,12 +17,19 @@ public class TabLayoutActivity extends TabActivity{
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.index);
+		String userName="";
+		Bundle extras = getIntent().getExtras();
+		if(extras !=null) {
+			 userName = extras.getString("userName");
+		}
+		
 		mTabHost = getTabHost();
 		TabHost.TabSpec spec;
 		Intent intent;
 		
 		//restaurent
 		intent = new Intent(this,RestaurantActivity.class);
+		intent.putExtra("userName", userName);
 		spec = mTabHost.newTabSpec("restaurent")
 						.setIndicator("Restaurent")
 						.setContent(intent);
@@ -30,6 +37,7 @@ public class TabLayoutActivity extends TabActivity{
 		
 		//movie
 		intent = new Intent(this,MovieActivity.class);
+		intent.putExtra("userName", userName);
 		spec = mTabHost.newTabSpec("movie")
 						.setIndicator("Movie")
 						.setContent(intent);
@@ -37,6 +45,7 @@ public class TabLayoutActivity extends TabActivity{
 		
 		//customize
 		intent = new Intent(this,CustomizeActivity.class);
+		intent.putExtra("userName", userName);
 		spec = mTabHost.newTabSpec("Customize")
 						.setIndicator("Customize")
 						.setContent(intent);

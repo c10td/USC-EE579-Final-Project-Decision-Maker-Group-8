@@ -14,7 +14,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/userName"
         android:layout_width="204dp"
         android:layout_column="2"
         android:layout_columnSpan="3"
@@ -24,20 +24,20 @@
     </EditText>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/createButton"
         android:layout_width="136dp"
         android:layout_column="3"
         android:layout_columnSpan="2"
         android:layout_row="3"
-        android:text="Create a new group" />
+        android:text="Create a new event" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/joinButton"
         android:layout_width="136dp"
         android:layout_column="3"
         android:layout_columnSpan="2"
         android:layout_row="4"
-        android:text="Join an existing group" />
+        android:text="Join an existing event" />
 
     <Space
         android:layout_width="1dp"

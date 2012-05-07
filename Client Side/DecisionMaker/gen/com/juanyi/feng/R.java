@@ -14,27 +14,48 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int arrow=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
+        public static final int pcicon=0x7f020002;
+        public static final int pcicon1=0x7f020003;
     }
     public static final class id {
-        public static final int button1=0x7f060005;
-        public static final int button2=0x7f060009;
-        public static final int editText1=0x7f060003;
-        public static final int gridLayout1=0x7f06000a;
-        public static final int myTableLayout=0x7f060008;
-        public static final int submit=0x7f060007;
-        public static final int textView1=0x7f060002;
-        public static final int textView2=0x7f060001;
-        public static final int textView3=0x7f060004;
-        public static final int textView4=0x7f060006;
-        public static final int title=0x7f060000;
+        public static final int button1=0x7f060019;
+        public static final int chat=0x7f060001;
+        public static final int createButton=0x7f060017;
+        public static final int editText1=0x7f060012;
+        public static final int getInfo=0x7f060010;
+        public static final int getZipCode=0x7f060013;
+        public static final int gridLayout1=0x7f060000;
+        public static final int imageView1=0x7f06000b;
+        public static final int imageView2=0x7f06000c;
+        public static final int imageView3=0x7f06000d;
+        public static final int joinButton=0x7f060018;
+        public static final int message=0x7f060002;
+        public static final int myTableLayout=0x7f060015;
+        public static final int optionOne=0x7f060005;
+        public static final int optionThree=0x7f060009;
+        public static final int optionTwo=0x7f060007;
+        public static final int scrollView1=0x7f06000e;
+        public static final int submit=0x7f060003;
+        public static final int submitCustomize=0x7f06000a;
+        public static final int textView1=0x7f060004;
+        public static final int textView2=0x7f060006;
+        public static final int textView3=0x7f060008;
+        public static final int textView4=0x7f060014;
+        public static final int textView_Groupinfo=0x7f06000f;
+        public static final int title=0x7f060011;
+        public static final int userName=0x7f060016;
     }
     public static final class layout {
-        public static final int index=0x7f030000;
-        public static final int main=0x7f030001;
-        public static final int restaurant=0x7f030002;
-        public static final int start=0x7f030003;
-        public static final int test=0x7f030004;
+        public static final int chat=0x7f030000;
+        public static final int customize=0x7f030001;
+        public static final int groupinfo=0x7f030002;
+        public static final int index=0x7f030003;
+        public static final int main=0x7f030004;
+        public static final int restaurant=0x7f030005;
+        public static final int start=0x7f030006;
+        public static final int test=0x7f030007;
     }
     public static final class string {
         public static final int app_name=0x7f040001;
