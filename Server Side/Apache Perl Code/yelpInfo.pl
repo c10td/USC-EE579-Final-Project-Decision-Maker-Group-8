@@ -20,8 +20,7 @@ if(eval{require LWP::Simple;})
 }
 $url=join("","http://www.yelp.com/search?find_desc=best+restaurants&find_loc=",$searchZipCode);
 $url=join("",$url,"&ns=1");
-#$url=join("",$url,$cuisineType);
-#$url = "http://www.restaurantrow.com/s_main.cfm?sType=1&rrzip=90007&name=&cuisine=American";
+
 $content = LWP::Simple::get($url);
 #print $content;
 $file='apple.txt';
@@ -32,15 +31,13 @@ open(INFO,$file);
 @restaurantName=();
 while($LINE=<INFO>)
 {
-	#$count++;
-	#$idString=join("",,$count);
+
 	if($LINE =~ m/bizTitleLink/)
 	{
-		#$LINE=~ m#<a[\d\D]*?href[^=]*?=[^"]*?"([\d\D]*?)"[^>]*?>([^<]*?)</a>#i;
+
 		
 		$LINE=~ m#<a[\d\D]*?id="[^"]*?"[\d\D]*?href="[^"]*?"[^>]*?>[^.]*?\.([^<&\n]*)#i;
 		
-		#print $1;
 		$name = $1;
 		
 		push(@restaurantName,"$name");

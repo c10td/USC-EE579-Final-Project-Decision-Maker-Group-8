@@ -13,11 +13,10 @@ public class Client {
   private OutputStream outToServer = null;
   private BufferedReader inFromServer = null;
   private Socket clientSocket = null;
-  private final String defaultServerIP = "207.151.66.29";
-  private final int defaultServerPort = 1099; 
+  private final String defaultServerIP = "192.168.1.2";
+  private final int defaultServerPort = 1099;
   private PrintWriter out = null;
-  private String fromClient = null;
-  
+   
 
   public Client() throws IOException {
     initializeClient(defaultServerIP, defaultServerPort);
@@ -49,15 +48,12 @@ public class Client {
   
   //Send message to the server
   public void sendMessage(String msg) throws IOException{
-    //Packet packet = new Packet(msg);
-    //fromClient = msg;
     out.println(msg);  
   }
 
-  //Receive message from the server, return the current state
+  //Receive message from the server, return the message
   public String recvMessage() throws IOException {
 	
-	//Packet packet = new Packet();    
     String fromServer = null;
     fromServer = inFromServer.readLine();
     String recvMsg = fromServer;

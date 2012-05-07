@@ -1,3 +1,4 @@
+//Author: Juanyi Feng
 package com.juanyi.feng;
 
 import java.io.BufferedReader;
@@ -19,9 +20,11 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
+/**
+ * An activity use for chat room of a group
+ */
 public class ChatTesterActivity extends Activity {
 	EditText message;
 	TextView chat;
@@ -36,12 +39,14 @@ public class ChatTesterActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat);
+        
+        //get information
         Bundle extras = getIntent().getExtras();
         if(extras !=null) {
-        //names = extras.getStringArrayList("names");
         userName = extras.getString("userName");
         eventID=extras.getString("eventID");
         fileName=extras.getString("fileName");
+        
         }
         chat=(TextView)findViewById(R.id.chat);
         chat.setMovementMethod(new ScrollingMovementMethod());
@@ -62,7 +67,9 @@ public class ChatTesterActivity extends Activity {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				//chat.append("\n "+currentMessage); 
+				
+				
+			    //send message
 				URL url;
 				try {
 					url = new URL("http://cs-server.usc.edu:1054/examples/servlet/Apple?type=post&fileName="+fileName+"&userName="+userName+"&message="+currentMessage);
@@ -81,7 +88,9 @@ public class ChatTesterActivity extends Activity {
         new RetreiveFeedTask().execute();
     }
     
-
+    /**
+     * use to refresh chatting history every 10s
+     */
     private class RetreiveFeedTask extends AsyncTask<Void,String,Void> {
 
     	private Exception exception;
@@ -123,11 +132,13 @@ public class ChatTesterActivity extends Activity {
             // TODO: do something with the feed
         }
 
-    	
+    	/*
+    	 * use to read data from perl server
+    	 */
     	private String[] readStream(InputStream in) {
         	BufferedReader reader = null;
         	ArrayList<String> lineList=new ArrayList<String>();
-        	//names=new ArrayList<String>();
+        	
         	try {
         		reader = new BufferedReader(new InputStreamReader(in));
         		String line = "";

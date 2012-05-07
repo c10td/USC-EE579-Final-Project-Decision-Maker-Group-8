@@ -1,3 +1,4 @@
+//Author: Juanyi Feng, Wanlong Cui
 package com.juanyi.feng;
 
 //import usc.ee579.hw1.R;
@@ -12,6 +13,9 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
+/**
+ * An activity use for user to get grouping result
+ */
 public class GroupInfoActivity extends Activity {
 	
 	protected Button getInfoButton;
@@ -72,16 +76,10 @@ public class GroupInfoActivity extends Activity {
 		        	
 		        	client.sendMessage("end");
 		        	client.closeConnection();
-		        	
-		        	//Intent intent = new Intent(RestaurantList.this, GroupInfoActivity.class);
-		        	//intent.putExtra("names", names);
-		        	//intent.putExtra("userName",userName);
-		        	//intent.putExtra("eventID",eventID);
-		        	//RestaurantList.this.startActivity(intent);
+
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-					//System.out.println("fail");
 				}
 	        	
 			}
@@ -103,11 +101,6 @@ public class GroupInfoActivity extends Activity {
 		        	client.sendMessage("end");
 		        	client.closeConnection();
 		        	
-		        	//Intent intent = new Intent(RestaurantList.this, GroupInfoActivity.class);
-		        	//intent.putExtra("names", names);
-		        	//intent.putExtra("userName",userName);
-		        	//intent.putExtra("eventID",eventID);
-		        	//RestaurantList.this.startActivity(intent);
 		        	Intent intent = new Intent(GroupInfoActivity.this, ChatTesterActivity.class);
 		        	intent.putExtra("names", names);
 		        	intent.putExtra("userName",userName);
@@ -117,7 +110,7 @@ public class GroupInfoActivity extends Activity {
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace(); 
-					//System.out.println("fail");
+
 				}
 				
 			}

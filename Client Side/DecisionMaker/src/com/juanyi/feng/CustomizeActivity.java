@@ -1,3 +1,4 @@
+//Author: Juanyi Feng
 package com.juanyi.feng;
 
 import java.io.IOException;
@@ -12,7 +13,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
+/**
+ * An activity use for inputing customize options
+ */
 public class CustomizeActivity  extends Activity {
 	String userName="";
 	Button submit ;
@@ -33,6 +36,7 @@ public class CustomizeActivity  extends Activity {
 		}
 		;
 		setContentView(R.layout.customize);
+		
 		optionOne= (EditText)findViewById(R.id.optionOne);
 		optionTwo=(EditText)findViewById(R.id.optionTwo);
 		optionThree=(EditText)findViewById(R.id.optionThree);
@@ -42,6 +46,8 @@ public class CustomizeActivity  extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
+				
+				//get options from EditTexts
 				String one=optionOne.getText().toString();
 				String two=optionTwo.getText().toString();
 				String three=optionThree.getText().toString();
@@ -59,6 +65,7 @@ public class CustomizeActivity  extends Activity {
 		        	client.sendMessage("end");
 		        	client.closeConnection();
 		        	
+		        	
 		        	Intent intent = new Intent(CustomizeActivity.this, RestaurantList.class);
 		        	intent.putExtra("names", names);
 		        	intent.putExtra("userName",userName);
@@ -75,7 +82,7 @@ public class CustomizeActivity  extends Activity {
 				
 			}
 		});
-		//intent.putExtra("userName",userName);
+
 		
 	}
 }

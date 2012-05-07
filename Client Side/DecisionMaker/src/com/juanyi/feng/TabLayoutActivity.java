@@ -1,3 +1,4 @@
+//Author: Juanyi Feng
 package com.juanyi.feng;
 
 import android.app.TabActivity;
@@ -5,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TabHost;
 
+/**
+ * An activity use for managing tab menus
+ */
 @SuppressWarnings("deprecation")
 public class TabLayoutActivity extends TabActivity{
 	private TabHost mTabHost;

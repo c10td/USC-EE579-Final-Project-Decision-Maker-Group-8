@@ -1,3 +1,4 @@
+//author:Juanyi Feng
 package com.juanyi.feng;
 
 import java.io.IOException;
@@ -16,6 +17,9 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+/**
+ * An activity use for showing options
+ */
 public class RestaurantList extends Activity{
 	TableLayout tl;
 	String userName="";
@@ -103,7 +107,7 @@ public class RestaurantList extends Activity{
 				
 			}
 		});
-        //getWindow().getDecorView().findViewById(R.id.myTableLayout).invalidate();
+        
 	}
 
 }

@@ -1,3 +1,4 @@
+//Author: Juanyi Feng
 package com.juanyi.feng;
 
 import java.io.IOException;
@@ -18,6 +19,9 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.TableRow.LayoutParams;
 
+/**
+ * An activity use for event seletion
+ */
 public class eventSelectionActivity   extends Activity {
 	String eventIDs;
 	TableLayout tl;
@@ -36,11 +40,13 @@ public class eventSelectionActivity   extends Activity {
 		}
 		System.out.println(eventIDs);
 		userName = extras.getString("userName");
-		//intent.putExtra("userName",userName);
+		
 		String[] events=eventIDs.split(";");
 		this.setContentView(R.layout.restaurant);
 		 tl =(TableLayout)findViewById(R.id.myTableLayout);
 	        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/MEgalopolisExtra.otf");
+	        
+	        //show all events programatically
 	        for(int i=0;i<events.length;i++)
 	        {
 	        	
@@ -87,7 +93,7 @@ public class eventSelectionActivity   extends Activity {
 			        	intent.putExtra("names", names);
 			        	intent.putExtra("userName",userName);
 			        	intent.putExtra("eventID",selectedGroup);
-			        	//System.out.println(options);
+			        	
 			        	
 			        	
 			        	client.sendMessage("end");

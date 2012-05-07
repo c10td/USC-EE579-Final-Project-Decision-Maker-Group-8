@@ -1,3 +1,4 @@
+//Author: Juanyi Feng
 package com.juanyi.feng;
 
 import java.io.IOException;
@@ -10,6 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+/**
+ * The welcome activity for the app
+ */
 public class welcomeActivity extends Activity {
 	 EditText userName;
 	String userNameString;

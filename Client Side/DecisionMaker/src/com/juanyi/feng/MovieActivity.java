@@ -1,3 +1,4 @@
+//author:Juanyi Feng
 package com.juanyi.feng;
 
 import java.io.BufferedReader;
@@ -18,6 +19,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+/**
+ * An activity use for requesting movie information from perl server
+ */
 public class MovieActivity  extends Activity {
 	EditText et;
 	Button submitButton;
@@ -50,17 +54,16 @@ public class MovieActivity  extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				//System.out.println(et.getText().toString());
-				//System.out.println(sp.getSelectedItem().toString());
+			
 				String zipCode=et.getText().toString();
 				try {
 					String temp="http://cs-server.usc.edu:1053/cgi-bin/movieInfo.pl?search="+zipCode;
-		        	//URL url = new URL("http://cs-server.usc.edu:1053/cgi-bin/yelpTester.pl?rrzip=90012&cuisine=South%20American");
+		        	
 					URL url = new URL(temp);
 					HttpURLConnection con = (HttpURLConnection) url
 		        		.openConnection();
 		        	readStream(con.getInputStream());
-		        	//TextView tempTV=new TextView("apple");
+		        	
 		        	String optionString="";
 		        	for(int i=0;i<names.size();i++)
 		        	{
@@ -84,8 +87,7 @@ public class MovieActivity  extends Activity {
 		        }
 			}
 		});
-        //String url="http://cs-server.usc.edu:1053/cgi-bin/yelpTester.pl";
-       // URL url;
+ 
         
     
     }

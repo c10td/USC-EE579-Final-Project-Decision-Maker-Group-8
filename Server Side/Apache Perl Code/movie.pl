@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 use warnings;
 #read(STDIN, $FormInfo, $ENV{'CONTENT_LENGTH'});
-print "Content-type:text/html\n\n";#content-type: text/xml
+print "Content-type:text/xml\n\n";#content-type: text/xml
 if (length ($ENV{'QUERY_STRING'}) > 0){
       $bufferString = $ENV{'QUERY_STRING'};
       @pairs = split(/&/, $bufferString);
@@ -99,15 +99,7 @@ while($LINE=<INFO>)
 				$LINE=<INFO>;
 				while(($LINE=<INFO>)&&($foundAllTime==0))
 				{
-					#if(($LINE =~ /<a/)&&($foundAllTime==0))
-					#{
- #					  $time = join(' ', $time,$LINE);
-	#					  $LINE=<INFO>;
-	#					  $LINE=~ s/\<.+?\>//sg;
-	#					  $LINE=~ s/^\s+//;
-	#					  $time = join('', $time,"$LINE</a>");
-	#					
-	#				}
+
 					if(($LINE =~ /[AP]M/)&&($foundAllTime==0))
 					{
 						  $LINE=~ s/\<.+?\>//sg;
@@ -127,14 +119,16 @@ while($LINE=<INFO>)
 	}
 }
 close(INFO);
-
 $arraySize = @movieName;
-for($i=0;$i<$arraySize;$i++)
+print "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>";#<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>
+print "<rsp stat=\"ok\">";
+print "<movies total=\"$arraySize\">";
+for($i=0;$i<$arraySize;$i++) 
 {
-	if (!$movieName[$i]eq"")
-	{
-		print $movieName[$i];
-		print "\n";
-	}
+	# PRINT A NEW ROW EACH TIME THROUGH W/ INCREMENT
+	print "<movie cover=\"$pic[$i]\" Title=\"$movieName[$i]\" MovieDuration=\"$duration[$i]\" showtime=\"$times[$i]\" theatre=\"$theater\" url=\"$movieURL[$i]\"\/>";
 	
 }
+print "<\/movies>";
+print "<\/rsp>";
+

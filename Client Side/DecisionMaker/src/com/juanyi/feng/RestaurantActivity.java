@@ -1,6 +1,8 @@
+//Author: Juanyi Feng,Wei Sun
 package com.juanyi.feng;
 
 import java.io.BufferedReader;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -32,6 +34,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+/**
+ * An activity use for requesting restaurants lists from perl server
+ */
 public class RestaurantActivity extends Activity {
 	EditText et;
 	Button submitButton;
@@ -111,11 +116,12 @@ public class RestaurantActivity extends Activity {
 		        }
 			}
 		});
-        //String url="http://cs-server.usc.edu:1053/cgi-bin/yelpTester.pl";
-       // URL url;
+      
         
     
     }
+    
+    //read data back from server
     private void readStream(InputStream in) {
     	BufferedReader reader = null;
     	names=new ArrayList<String>();
@@ -142,6 +148,10 @@ public class RestaurantActivity extends Activity {
     		}
     	}
     }
+    
+    /**
+     * An inner class use to get current zipcode
+     */
     public class ZipCodeHolder {
 
 
